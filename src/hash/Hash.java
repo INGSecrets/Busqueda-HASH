@@ -37,18 +37,7 @@ public class Hash {
             javax.swing.JOptionPane.showMessageDialog(null, "¡Tabla llena!");
         }
     }
-    
-    
-    static String mostrarTabla(Hash[] h){
-        String contenido="";
-        for(int i=0;i<h.length;i++)
-        {
-            if(h[i].estado==2)
-            contenido=contenido+h[i].datos+"\n";
-        }
-        return contenido;
-    }
-    static String buscaHash(Hash[] h, int m, int n) {
+        static String buscaHash(Hash[] h, int m, int n) {
         int j = funcion(n, m);
         while (j < m) {
             if (h[j].estado == 0) {
@@ -66,5 +55,36 @@ public class Hash {
         }
         return "-1";
     }
+     static int eliminaHash(Hash[] h, int m, int n) {
+        String i = buscaHash(h, m, n);
+        int j=funcion(n,m);
+        Boolean v=false;
+        if (i == "-1") {
+            return -1;
+        } else {
+            do{
+                if(h[j].dato!=n)
+                {
+                j++;
+                }else{
+                    v=true;
+                }
+            }while(!v);
+            h[j].estado = 1;
+            return 1;
+        }
+    }
+    
+    
+    static String mostrarTabla(Hash[] h){
+        String contenido="";
+        for(int i=0;i<h.length;i++)
+        {
+            if(h[i].estado==2)
+            contenido=contenido+h[i].datos+"\n";
+        }
+        return contenido;
+    }
+
     
 }
