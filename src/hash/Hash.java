@@ -10,15 +10,15 @@ package hash;
  * @author viane
  */
 public class Hash {
-    int dato;
-    String datos,Nombre,sueldo;
-    int estado; //0 = Vacío, 1 = Eliminado, 2 = Ocupado
+    public int dato;
+    public String datos,Nombre,sueldo;
+    public int estado; //0 = Vacío, 1 = Eliminado, 2 = Ocupado
 
-    static int funcion(int n, int m) {
+    public static int funcion(int n, int m) {
         return ((n + 1) % m);
     }
     
-    static void insertaHash(Hash[] h, int m, int n, String nombre,String suel) {
+    public static void insertaHash(Hash[] h, int m, int n, String nombre,String suel) {
         boolean i = false;
         int j = funcion(n, m);
         do {
@@ -37,7 +37,7 @@ public class Hash {
             javax.swing.JOptionPane.showMessageDialog(null, "¡Tabla llena!");
         }
     }
-        static String buscaHash(Hash[] h, int m, int n) {
+        public static String buscaHash(Hash[] h, int m, int n) {
         int j = funcion(n, m);
         while (j < m) {
             if (h[j].estado == 0) {
@@ -55,7 +55,7 @@ public class Hash {
         }
         return "-1";
     }
-     static int eliminaHash(Hash[] h, int m, int n) {
+    public static int eliminaHash(Hash[] h, int m, int n) {
         String i = buscaHash(h, m, n);
         int j=funcion(n,m);
         Boolean v=false;
@@ -76,7 +76,7 @@ public class Hash {
     }
     
     
-    static String mostrarTabla(Hash[] h){
+    public static String mostrarTabla(Hash[] h){
         String contenido="";
         for(int i=0;i<h.length;i++)
         {
