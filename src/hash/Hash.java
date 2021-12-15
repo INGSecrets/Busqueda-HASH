@@ -38,4 +38,15 @@ public class Hash {
         }
     }
     
+    
+    static String mostrarTabla(Hash[] h){
+        String contenido="";
+        for(int i=0;i<h.length;i++)
+        {
+            if(h[i].estado==2)
+            contenido=contenido+h[i].datos+"\n";
+        }
+        return contenido;
+    }
+    
 }
