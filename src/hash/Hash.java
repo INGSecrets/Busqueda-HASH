@@ -48,5 +48,23 @@ public class Hash {
         }
         return contenido;
     }
+    static String buscaHash(Hash[] h, int m, int n) {
+        int j = funcion(n, m);
+        while (j < m) {
+            if (h[j].estado == 0) {
+                return "-1";
+            } else if (h[j].dato == n) {
+                if (h[j].estado == 1) {
+                    return "-1";
+                } else {
+                   return h[j].datos;
+                    
+                }
+            } else {
+                j++;
+            }
+        }
+        return "-1";
+    }
     
 }
